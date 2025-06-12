@@ -1,9 +1,9 @@
 import logging
-from agent.system_agent import SystemHealthAgent
+from backend.agent.system_agent import SystemHealthAgent
 import json
 from datetime import datetime
 import os
-from utils.cloud import upload_to_gcs
+from backend.utils.cloud import upload_to_gcs
 
 logging.basicConfig(
     filename='agent.log',

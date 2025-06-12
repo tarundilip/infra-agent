@@ -1,5 +1,5 @@
 import subprocess
-from agent.base import BaseAgent
+from backend.agent.base import BaseAgent
 
 class PingCheckAgent(BaseAgent):
     def run(self):

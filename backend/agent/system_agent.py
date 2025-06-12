@@ -1,8 +1,8 @@
 from concurrent.futures import ThreadPoolExecutor
-from agent.cpu import CpuCheckAgent
-from agent.memory import MemoryCheckAgent
-from agent.disk import DiskCheckAgent
-from agent.ping import PingCheckAgent
+from backend.agent.cpu import CpuCheckAgent
+from backend.agent.memory import MemoryCheckAgent
+from backend.agent.disk import DiskCheckAgent
+from backend.agent.ping import PingCheckAgent
 
 class SystemHealthAgent:
     def __init__(self):

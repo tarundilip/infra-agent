@@ -1,5 +1,5 @@
 import psutil
-from agent.base import BaseAgent
+from backend.agent.base import BaseAgent
 
 class CpuCheckAgent(BaseAgent):
     def run(self):
