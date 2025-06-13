@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './index.css';
+import './App.css';
 import ChartView from './components/ChartView';
 
 function App() {
@@ -53,13 +53,12 @@ function App() {
               <p><strong>Memory %:</strong> {r.memory_percent}</p>
               <p><strong>Disk %:</strong> {r.disk_percent}</p>
               <p><strong>Ping to Google (ms):</strong> {r.ping_google_ms}</p>
-              <hr />
             </div>
           ))}
           <ChartView key={JSON.stringify(filtered)} reports={filtered} />
           <div className="pagination">
             <button disabled={page === 0} onClick={() => setPage(p => p - 1)}>Prev</button>
-            <span> Page {page + 1} of {pages} </span>
+            <span>Page {page + 1} of {pages}</span>
             <button disabled={page + 1 >= pages} onClick={() => setPage(p => p + 1)}>Next</button>
           </div>
         </>
