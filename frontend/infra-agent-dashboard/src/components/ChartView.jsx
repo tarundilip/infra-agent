@@ -4,22 +4,23 @@ import {
   LineElement,
   PointElement,
   LinearScale,
-  CategoryScale,  
+  CategoryScale,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  Filler
 } from 'chart.js';
 
 ChartJS.register(
   LineElement,
   PointElement,
   LinearScale,
-  CategoryScale, 
+  CategoryScale,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  Filler
 );
-
 
 export default function ChartView({ reports }) {
   const sorted = [...reports].sort((a, b) => a.filename.localeCompare(b.filename));
@@ -33,22 +34,38 @@ export default function ChartView({ reports }) {
       {
         label: 'CPU %',
         data: cpuData,
-        borderColor: 'rgba(75,192,192,1)',
-        fill: false,
+        borderColor: '#e74c3c',
+        backgroundColor: 'rgba(231, 76, 60, 0.2)',
+        fill: true,
+        tension: 0.4,
       },
       {
         label: 'Memory %',
         data: memData,
-        borderColor: 'rgba(153,102,255,1)',
-        fill: false,
+        borderColor: '#8e44ad',
+        backgroundColor: 'rgba(142, 68, 173, 0.2)',
+        fill: true,
+        tension: 0.4,
       },
     ],
   };
 
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+    },
+  };
+
   return (
-    <div style={{ background: '#fff', padding: '15px', borderRadius: '5px', marginTop: '20px' }}>
-      <h2>CPU & Memory Trends</h2>
-      <Line data={data} />
+    <div className="chart-container" style={{ height: '400px' }}>
+      <h2 style={{ marginBottom: '20px', color: '#2c3e50' }}>
+        CPU & Memory Trends
+      </h2>
+      <Line data={data} options={options} />
     </div>
   );
 }
